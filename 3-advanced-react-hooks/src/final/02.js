@@ -50,7 +50,7 @@ function useAsync(asyncCallback, initialState, dependencies) {
       },
     )
     // too bad the eslint plugin can't statically analyze this :-(
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line 2-react-hooks/exhaustive-deps
   }, dependencies)
 
   return state

@@ -66,7 +66,7 @@ should be able to just run a few commands to get set up:
 
 ```shell
 git clone https://github.com/kentcdodds/react-fundamentals.git
-cd react-fundamentals
+cd 1-react-fundamentals
 node setup
 ```
 

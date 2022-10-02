@@ -31,6 +31,17 @@ function pokemonInfoReducer(state, action) {
   }
 }
 
+const useAsync = (asyncCallback, dependencies) => {
+  const [state, dispatch] = React.useReducer(pokemonInfoReducer, {
+    status: pokemonName ? 'pending' : 'idle',
+    // 🐨 this will need to be "data" instead of "pokemon"
+    data: null,
+    error: null,
+  })
+
+
+}
+
 function PokemonInfo({pokemonName}) {
   // 🐨 move all the code between the lines into a new useAsync function.
   // 💰 look below to see how the useAsync hook is supposed to be called
@@ -40,12 +51,12 @@ function PokemonInfo({pokemonName}) {
 
   // -------------------------- start --------------------------
 
-  const [state, dispatch] = React.useReducer(pokemonInfoReducer, {
-    status: pokemonName ? 'pending' : 'idle',
-    // 🐨 this will need to be "data" instead of "pokemon"
-    pokemon: null,
-    error: null,
-  })
+  // const [state, dispatch] = React.useReducer(pokemonInfoReducer, {
+  //   status: pokemonName ? 'pending' : 'idle',
+  //   // 🐨 this will need to be "data" instead of "pokemon"
+  //   pokemon: null,
+  //   error: null,
+  // })
 
   React.useEffect(() => {
     // 💰 this first early-exit bit is a little tricky, so let me give you a hint:
@@ -68,7 +79,7 @@ function PokemonInfo({pokemonName}) {
     )
     // 🐨 you'll accept dependencies as an array and pass that here.
     // 🐨 because of limitations with ESLint, you'll need to ignore
-    // the react-hooks/exhaustive-deps rule. We'll fix this in an extra credit.
+    // the 2-react-hooks/exhaustive-deps rule. We'll fix this in an extra credit.
   }, [pokemonName])
   // --------------------------- end ---------------------------
 

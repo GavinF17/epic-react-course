@@ -9,8 +9,8 @@ costly computation.
 useState(() => someExpensiveComputation())
 ```
 
-See [react-hooks 2 extra credit 1](react-hooks/src/exercise/02.md)
+See [react-hooks 2 extra credit 1](2-react-hooks/src/exercise/02.md)
 
 ## React Hook Flow
 
-![](react-hooks/src/examples/hook-flow.png)
+![](2-react-hooks/src/examples/hook-flow.png)
