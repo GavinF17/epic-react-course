@@ -2,11 +2,15 @@
 // http://localhost:3000/isolated/exercise/06.js
 
 import * as React from 'react'
+import {useDebugValue} from 'react'
+
+const formatMediaDebugValue = ({query, state}) => `\`${query}\` => ${state}`
 
 function useMedia(query, initialState = false) {
   const [state, setState] = React.useState(initialState)
   // 🐨 call React.useDebugValue here.
   // 💰 here's the formatted label I use: `\`${query}\` => ${state}`
+  useDebugValue({query, state}, formatMediaDebugValue)
 
   React.useEffect(() => {
     let mounted = true
@@ -18,12 +22,12 @@ function useMedia(query, initialState = false) {
       setState(Boolean(mql.matches))
     }
 
-    mql.addListener(onChange)
+    mql.addEventListener('change', onChange)
     setState(mql.matches)
 
     return () => {
       mounted = false
-      mql.removeListener(onChange)
+      mql.removeEventListener('change', onChange)
     }
   }, [query])
 
